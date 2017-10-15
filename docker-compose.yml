@@ -12,4 +12,9 @@ services:
       - ./laravel:/var/www/html
       - ./proxy/conf.d:/etc/nginx/conf.d
     links:
-      - php-app:php-app  
+      - php-app:php-app
+  composer:
+    image: composer
+    command: install
+    volumes:
+      - ./laravel:/app
