@@ -1,0 +1,15 @@
+version: "2"
+services:
+  php-app:
+    image: php:fpm
+    volumes:
+      - ./laravel:/var/www/html
+  nginx-proxy:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./laravel:/var/www/html
+      - ./proxy/conf.d:/etc/nginx/conf.d
+    links:
+      - php-app:php-app  
