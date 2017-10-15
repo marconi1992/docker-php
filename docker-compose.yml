@@ -26,9 +26,3 @@ services:
       - ./laravel:/app
     working_dir: /app
     command: npm install
-  mix-build:
-    image: node:slim
-    volumes:
-      - ./laravel:/app
-    working_dir: /app
-    command: npm run dev
